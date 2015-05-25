@@ -1,0 +1,86 @@
+<style type="text/css">
+.p10{
+	padding: 10px;
+}
+.font-black{
+	color:black;
+}
+.font-white{
+	color: white;
+}
+.tag-cloud-bg{
+	background-color: #3F51B5;
+}
+input[type=checkbox]{
+	height:20px;
+	width:20px;
+}
+.p5
+{
+	padding:5px;
+	padding-left: 0px;
+}
+</style>
+<!--The below code is responsive and it will work on all devices, Mobile, Tablet, Web-->
+<div class="container-fluid  tag-cloud-bg" ng-controller="AddTagCloudCtrl">
+	<div class="container p10" style="padding-bottom:50px;padding-top:50px;">
+		<div class="contact_section">
+        <h2>ADD TAG CLOUD</h2>
+      </div>
+<form name="tagCloudForm">
+		<div class="row p10">
+			<div class="col-sm-2 font-white p5">What</div>
+			<div class="col-sm-8 p5">
+				  <input type="text" class="form-control" placeholder="Provide title" ng-model="title" name="titleBox" required>
+			</div>
+		</div>
+		<div class="row p10">
+			<div class="col-sm-2 font-white p5">Why</div>
+			<div class="col-sm-8 p5">
+				  <input type="text" class="form-control" placeholder="Description"  ng-model="description" name="descriptionBox" required>
+			</div>
+		</div>
+		<div class="row p10">
+			<div class="col-sm-2 font-white p5">Content</div>
+			<div class="col-sm-8 p5">
+				<div ng-repeat="choice in contentChoices" style="float:left;padding:10px;">
+					<div>
+						<input type="checkbox" ng-model="choice.isSelected">
+						<span class="font-white">{{choice.contentType}}</span>
+					</div>
+				</div>
+				  
+			</div>
+		</div>
+		<div class="row p10 ">
+			<div class="col-sm-2 font-white p5">How will i engage ?</div>
+			<div class="col-sm-8 font-white p5">
+				  <div ng-repeat="choice in engageTypes" style="float:left;padding:10px;">
+					<div>
+						<input type="checkbox" ng-model="choice.isSelected">
+						<span>{{choice.engageType}}</span>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row p10 ">
+			<div class="col-sm-2"></div>
+			<div class="col-sm-8">
+				<button type="button" class="btn btn-default" ng-click="fnSave()">SAVE</button>
+				<button type="button" class="btn btn-default">CANCEL</button>
+			</div>
+		</div>
+		</form>
+		<div class="row p10 ">
+			<div class="col-sm-2"></div>
+			<div class="col-sm-8 font-white">
+				<div ng-messages="tagCloudForm.titleBox.$error" role="alert">
+					<div ng-message="required">Please enter a value in the Title field</div>
+				</div>
+				<div ng-messages="tagCloudForm.descriptionBox.$error" role="alert">
+					<div ng-message="required">Please enter a value in the Description field</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

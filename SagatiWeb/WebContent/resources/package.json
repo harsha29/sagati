@@ -1,0 +1,7 @@
+{
+  "name": "harsha-app",
+  "version": "1.0.0",
+  "local-web-server":{
+    "port": 8120
+  }
+}
